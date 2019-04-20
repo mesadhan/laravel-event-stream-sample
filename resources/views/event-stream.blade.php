@@ -1,8 +1,8 @@
 <style>
     #main_frame {
         border: 5px solid red;
-        padding: 20px;
-        max-width: 800px;
+        padding: 25px;
+        max-width: 850px;
         margin: 0 auto;
     }
 
@@ -29,9 +29,9 @@
     let evtSource = new EventSource("/getEventStream", {withCredentials: true});
 
     evtSource.onmessage = function (e) {
-        let data = JSON.parse(e.data);
+        let serverData = JSON.parse(e.data);
 
-        console.log('EventData:- ', data);
+        console.log('EventData:- ', serverData);
 
 
         let rawData = document.getElementById('rawData');
@@ -41,17 +41,18 @@
         let content_id = document.getElementById('content_id');
         let content_message = document.getElementById('content_message');
 
-        rawData.textContent = JSON.stringify(data);
-        content_name.textContent = data.name;
-        content_time.textContent = data.time;
-        content_id.textContent = data.id;
-        content_message.textContent = data.message;
+        content_name.textContent = serverData.name;
+        content_time.textContent = serverData.time;
+        content_id.textContent = serverData.id;
+        content_message.textContent = serverData.message;
+
 
         let color = getRandomColor();
+        serverData['color'] = color;                // set color in server object
         main_frame.style.borderColor = color;
-        rawData.style.color = color;
+        //rawData.style.color = color;
 
-
+        rawData.textContent = JSON.stringify(serverData);
     };
 
 
