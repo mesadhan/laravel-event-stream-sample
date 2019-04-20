@@ -1,0 +1,6 @@
+GET http://localhost:8000/getEventStream
+
+<> 2019-04-21T122431.200.txt
+
+###
+
