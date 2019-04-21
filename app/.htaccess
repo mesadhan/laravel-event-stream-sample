@@ -1,0 +1,12 @@
+
+
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteCond %{HTTP_HOST} ^(www\.)?livescooore\.com
+RewriteRule ^(.*)$ https://www.livescooore.com/$1 [R,L]
+
+RewriteRule ^(.*)$ public/$1 [L]
+
+
+
+
