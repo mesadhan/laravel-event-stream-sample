@@ -99,6 +99,25 @@ evtSource.onmessage = function (e) {
 ```
 
 
-## Referenes
+## Heroku Config
+
+> create `Procfile`
+
+    web: web: vendor/bin/heroku-php-apache2 public/
+    
+> crate heroku application
+
+    heroku create
+    
+> check heroku location
+
+    git remote -v
+
+> push application to heroku server
+
+    git push heroku master
+
+
+## References
 
  - https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events
